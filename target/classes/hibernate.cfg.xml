@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- @Deprecated
+         anlami artik bu yapi kullanimdan cikmis ancak kullanilan programlarda sikinti
+         olmamasi icin bir süre dah yürürlükte tutlmasi demek developer buna dikkat etmeli bir kac version sora kullanilmayacaginda
+         güncel olani kullanmaliyiz bu deprecated olmus yapilar üstü cizili olarak gelir ve biz ordan bunu anlayabiliriz
+         <property name ="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> -->
+        <property name ="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/test_dbintelij</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">0703latife.</property>
+        <property name ="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+
+        <!-- validate, update, create, create-drop -->
+        <!-- create: uygulama her çalıştığında tablolar yeniden oluşur -->
+        <!-- create-drop: uygulama run edildiğinde tablolar oluşur, uygulama kapatıldığında tablolar silinir -->
+        <!-- validate: veritabanında bir değişiklik yapmaz şemanın validate mi diye kontrol eder -->
+        <!-- update: sınıflarda yapılan değişikliğe göre tabloları update eder -->
+        <property name="hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- /hibernate.cfg.xml içinde mapping class ile eklenmişseaşağıdaki satıra ihtiyaç yok.
+        //ikisinden biri kullanılabilir.
+        //con.addAnnotatedClass(Student03.class).addAnnotatedClass(Diary.class);
+
+
+        <mapping class="com.hb03.onetoone.Student03"/>
+        <mapping class="com.hb03.onetoone.Diary"/>
+        -->
+
+    </session-factory>
+</hibernate-configuration>
